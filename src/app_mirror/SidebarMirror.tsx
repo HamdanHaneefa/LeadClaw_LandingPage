@@ -19,23 +19,13 @@ interface SidebarMirrorProps {
   activeTab: string;
   setActiveTab: (tab: string) => void;
 }
-import Image from 'next/image';
-
-const isProd = process.env.NODE_ENV === 'production';
-const logoPath = '/logo.svg';
+import BrandLogo from '@/components/BrandLogo';
 
 const SidebarMirror = ({ activeTab, setActiveTab }: SidebarMirrorProps) => {
   return (
     <aside className="app-theme-mirror panel-left-mirror">
       <div style={{ padding: '32px 24px', marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '12px' }}>
-        <div style={{ position: 'relative', width: '32px', height: '32px' }}>
-          <Image 
-            src={logoPath} 
-            alt="Lead Claw Logo" 
-            fill
-            style={{ objectFit: 'contain', borderRadius: '8px' }} 
-          />
-        </div>
+        <BrandLogo size={32} />
         <span style={{ fontWeight: '600', fontSize: '18px', color: 'var(--text-main)', letterSpacing: '-0.03em' }}>Lead Claw</span>
       </div>
 

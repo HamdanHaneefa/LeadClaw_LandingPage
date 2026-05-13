@@ -17,6 +17,7 @@ import {
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import WorkflowMockup from '@/components/WorkflowMockup';
+import BrandLogo from '@/components/BrandLogo';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -71,9 +72,7 @@ export default function Home() {
         <div className="container">
           <div className="nav-inner glass">
             <div className="logo-section">
-              <div className="logo-box">
-                <Image src="/logo.svg" alt="Logo" fill className="object-contain" />
-              </div>
+              <BrandLogo size={32} />
               <span className="logo-text">Lead Claw</span>
             </div>
 
@@ -207,7 +206,7 @@ export default function Home() {
                 <div className="nexus-visual">
                     <div className="nexus-core">
                         <div className="core-inner glass-bright">
-                            <Image src="/logo.svg" alt="Core" width={48} height={48} />
+                            <BrandLogo size={48} />
                         </div>
                         <div className="core-orbit orbit-1" />
                         <div className="core-orbit orbit-2" />
@@ -457,9 +456,7 @@ export default function Home() {
             <div className="footer-grid">
                 <div className="footer-brand">
                     <div className="logo-section" style={{ marginBottom: '24px' }}>
-                        <div className="logo-box">
-                            <Image src="/logo.svg" alt="Logo" fill className="object-contain" />
-                        </div>
+                        <BrandLogo size={32} />
                         <span className="logo-text">Lead Claw</span>
                     </div>
                     <p className="footer-tagline">
