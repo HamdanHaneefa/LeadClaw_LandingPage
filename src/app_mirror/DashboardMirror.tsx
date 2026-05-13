@@ -109,7 +109,7 @@ const DashboardMirror = () => {
       </div>
 
       {/* Funnel Section */}
-      <div style={{...cardStyle, padding: '20px'}}>
+      <div style={{...cardStyle, padding: '20px'} as React.CSSProperties}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '4px' }}>
             <div style={{ fontSize: '1.4rem', fontWeight: '700', color: 'var(--text-main)' }}>{metrics.total}</div>
             <div style={{ width: '1px', height: '20px', background: 'var(--border-subtle)' }} />
@@ -130,7 +130,7 @@ const DashboardMirror = () => {
              { label: 'Warm', count: 48, color: 'var(--accent-yellow)', bg: 'rgba(245, 158, 11, 0.08)' },
              { label: 'Cold', count: 156, color: 'var(--text-dim)', bg: 'rgba(100, 116, 139, 0.08)' }
          ].map(s => (
-             <div key={s.label} style={{ padding: '16px', background: s.bg, borderRadius: '16px', border: `1px solid ${s.color}15`, display: 'flex', flexDirection: 'column', gap: '4px' }}>
+             <div key={s.label} style={{ padding: '16px', background: s.bg, borderRadius: '16px', border: `1px solid ${s.color}15`, display: 'flex', flexDirection: 'column', gap: '4px' } as React.CSSProperties}>
                 <div style={{ fontSize: '24px', fontWeight: '700', color: s.color }}>{s.count}</div>
                 <div style={{ fontSize: '12px', fontWeight: '600', color: 'var(--text-muted)' }}>{s.label} Quality</div>
              </div>
