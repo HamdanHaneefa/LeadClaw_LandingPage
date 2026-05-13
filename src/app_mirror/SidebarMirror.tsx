@@ -15,7 +15,12 @@ import {
   Moon
 } from 'lucide-react';
 
-const SidebarMirror = ({ activeTab, setActiveTab }) => {
+interface SidebarMirrorProps {
+  activeTab: string;
+  setActiveTab: (tab: string) => void;
+}
+
+const SidebarMirror = ({ activeTab, setActiveTab }: SidebarMirrorProps) => {
   return (
     <aside className="app-theme-mirror panel-left-mirror">
       <div style={{ padding: '32px 24px', marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '12px' }}>

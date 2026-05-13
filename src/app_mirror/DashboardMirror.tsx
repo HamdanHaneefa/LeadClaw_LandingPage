@@ -61,7 +61,7 @@ const DashboardMirror = () => {
     { label: 'Booked', count: 218, color: 'var(--accent-green)' }
   ];
 
-  const cardStyle = {
+  const cardStyle: React.CSSProperties = {
     backgroundColor: 'var(--bg-panel)',
     borderRadius: '12px',
     padding: '16px',
