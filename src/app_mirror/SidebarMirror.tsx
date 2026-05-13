@@ -20,11 +20,14 @@ interface SidebarMirrorProps {
   setActiveTab: (tab: string) => void;
 }
 
+const isProd = process.env.NODE_ENV === 'production';
+const logoPath = isProd ? '/Lead-Claw_Landing_Page/logo.svg' : '/logo.svg';
+
 const SidebarMirror = ({ activeTab, setActiveTab }: SidebarMirrorProps) => {
   return (
     <aside className="app-theme-mirror panel-left-mirror">
       <div style={{ padding: '32px 24px', marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '12px' }}>
-        <div style={{ width: '32px', height: '32px', background: 'var(--primary)', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontWeight: 'bold' }}>L</div>
+        <img src={logoPath} alt="Lead Claw Logo" style={{ width: '32px', height: '32px', borderRadius: '8px' }} />
         <span style={{ fontWeight: '600', fontSize: '18px', color: 'var(--text-main)', letterSpacing: '-0.03em' }}>Lead Claw</span>
       </div>
 
