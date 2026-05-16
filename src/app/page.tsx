@@ -12,11 +12,12 @@ import {
   ChevronRight,
   Globe,
   Bot,
-  X
+  X,
+  TrendingUp
 } from 'lucide-react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import WorkflowMockup from '@/components/WorkflowMockup';
+import DashboardPreview from '@/components/DashboardPreview';
 
 const isProd = process.env.NODE_ENV === 'production';
 const basePath = isProd ? '/Lead-Claw_Landing_Page' : '';
@@ -98,12 +99,12 @@ export default function Home() {
       <section className="hero-section">
         <div className="container">
           <div className="badge">
-            <Zap size={14} /> The Next-Gen Command Center
+            <Zap size={14} /> AI That Never Sleeps, Closes That Never Stop
           </div>
           
           <h1 ref={titleRef} className="hero-title">
-            Close More Leads While <br />
-            <span className="text-gradient">You Sleep.</span>
+            Your AI-Powered Lead <br />
+            <span className="text-gradient">Command Center.</span>
           </h1>
 
           <p ref={subRef} className="hero-sub">
@@ -119,11 +120,66 @@ export default function Home() {
             </button>
           </div>
 
-          {/* 🖥️ Interactive Workflow Engine */}
+          {/* 🖥️ Interactive Dashboard Preview */}
           <div ref={previewRef} className="preview-container">
-            <WorkflowMockup />
+            <DashboardPreview />
             <div className="blur-accent blur-1" />
             <div className="blur-accent blur-2" />
+          </div>
+        </div>
+      </section>
+
+      {/* ─── HOW LEAD CLAW SETS YOU UP FOR SUCCESS ─────────── */}
+      <section className="success-section">
+        <div className="container">
+          <div className="section-header">
+            <h2 className="section-title">Here's how <span className="text-gradient">Lead Claw</span> sets you up for success</h2>
+          </div>
+
+          <div className="success-grid">
+            {/* Card 1 */}
+            <div className="success-card glass">
+              <div className="success-icon-wrapper">
+                <div className="success-icon primary-glow">
+                  <Zap size={48} strokeWidth={1.5} />
+                </div>
+              </div>
+              <h3>Lightning-Fast Response</h3>
+              <p>Reply to every lead within 10 seconds, 24/7. Never lose a hot prospect to slow response times again.</p>
+            </div>
+
+            {/* Card 2 */}
+            <div className="success-card glass">
+              <div className="success-icon-wrapper">
+                <div className="success-icon secondary-glow">
+                  <Bot size={48} strokeWidth={1.5} />
+                </div>
+              </div>
+              <h3>AI-Powered Intelligence</h3>
+              <p>Advanced AI agents qualify leads, detect intent, and autonomously book meetings while you focus on closing deals.</p>
+            </div>
+
+            {/* Card 3 */}
+            <div className="success-card glass">
+              <div className="success-icon-wrapper">
+                <div className="success-icon accent-glow">
+                  <Globe size={48} strokeWidth={1.5} />
+                </div>
+              </div>
+              <h3>Omnichannel Mastery</h3>
+              <p>Unify WhatsApp, Instagram, Facebook, and web leads into one intelligent command center. No more tab juggling.</p>
+            </div>
+
+            {/* Card 4 */}
+            <div className="success-card glass">
+              <div className="success-icon-wrapper">
+                <div className="success-icon green-glow">
+                  <TrendingUp size={48} strokeWidth={1.5} />
+                </div>
+              </div>
+              <h3>Scale Without Limits</h3>
+              <p>Handle 10,000+ leads with automated follow-ups, smart scheduling, and zero manual effort. Growth made effortless.</p>
+            </div>
           </div>
         </div>
       </section>
