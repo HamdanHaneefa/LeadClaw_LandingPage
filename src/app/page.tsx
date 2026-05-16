@@ -20,7 +20,8 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import DashboardPreview from '@/components/DashboardPreview';
 
 const isProd = process.env.NODE_ENV === 'production';
-const basePath = isProd ? '/Lead-Claw_Landing_Page' : '';
+const isGitHubPages = process.env.GITHUB_PAGES === 'true';
+const basePath = (isProd && isGitHubPages) ? '/Lead-Claw_Landing_Page' : '';
 const logoSrc = `${basePath}/logo.svg`;
 
 gsap.registerPlugin(ScrollTrigger);
