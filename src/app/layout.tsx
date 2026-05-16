@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.SITE_URL || 'https://leadclaw-landingpage.onrender.com'),
+  metadataBase: new URL('https://leadclaw-landingpage.onrender.com'),
   title: "Lead Claw | The Intelligence Command Center for Lead Automation",
   description: "Scale your sales with Lead Claw, the premium omnichannel AI CRM. Automated WhatsApp, Messenger, and Instagram lead engagement with autonomous booking and 24/7 follow-up.",
   keywords: ["Lead Claw", "AI CRM", "WhatsApp Automation", "Lead Management", "Omnichannel Marketing", "Sales Automation"],
