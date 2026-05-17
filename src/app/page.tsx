@@ -73,12 +73,12 @@ export default function Home() {
       <nav ref={navRef} className="nav-container">
         <div className="container">
           <div className="nav-inner glass">
-            <div className="logo-section">
+            <a href="/" className="logo-section">
               <div className="logo-box">
                 <img src={logoSrc} alt="Logo" style={{ width: '32px', height: '32px', objectFit: 'contain' }} />
               </div>
               <span className="logo-text">Lead Claw</span>
-            </div>
+            </a>
 
             <div className="nav-links">
               <a href="#features">Features</a>
@@ -139,7 +139,7 @@ export default function Home() {
             <div className="success-card glass">
               <div className="success-icon-wrapper">
                 <div className="success-icon primary-glow">
-                  <Zap size={48} strokeWidth={1.5} />
+                  <Zap className="success-icon-svg" strokeWidth={1.5} />
                 </div>
               </div>
               <h3>Lightning-Fast Response</h3>
@@ -150,7 +150,7 @@ export default function Home() {
             <div className="success-card glass">
               <div className="success-icon-wrapper">
                 <div className="success-icon secondary-glow">
-                  <Bot size={48} strokeWidth={1.5} />
+                  <Bot className="success-icon-svg" strokeWidth={1.5} />
                 </div>
               </div>
               <h3>AI-Powered Intelligence</h3>
@@ -161,7 +161,7 @@ export default function Home() {
             <div className="success-card glass">
               <div className="success-icon-wrapper">
                 <div className="success-icon accent-glow">
-                  <Globe size={48} strokeWidth={1.5} />
+                  <Globe className="success-icon-svg" strokeWidth={1.5} />
                 </div>
               </div>
               <h3>Omnichannel Mastery</h3>
@@ -172,7 +172,7 @@ export default function Home() {
             <div className="success-card glass">
               <div className="success-icon-wrapper">
                 <div className="success-icon green-glow">
-                  <TrendingUp size={48} strokeWidth={1.5} />
+                  <TrendingUp className="success-icon-svg" strokeWidth={1.5} />
                 </div>
               </div>
               <h3>Scale Without Limits</h3>
@@ -536,14 +536,13 @@ export default function Home() {
                     <a href="#features">Features</a>
                     <a href="#agents">AI Agents</a>
                     <a href="#scale">Bulk Scale</a>
-                    <a href="#pricing">Pricing</a>
                 </div>
 
                 <div className="footer-links">
                     <h4>Company</h4>
                     <a href="#">About Us</a>
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Service</a>
+                    <a href="/privacy-policy">Privacy Policy</a>
+                    <a href="/terms-of-service">Terms of Service</a>
                     <a href="#">Contact Support</a>
                 </div>
 
