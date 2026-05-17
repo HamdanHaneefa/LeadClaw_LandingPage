@@ -106,7 +106,7 @@ export default function Home() {
           </h1>
 
           <p ref={subRef} className="hero-sub">
-            The next-generation AI-First Omnichannel CRM. Connect WhatsApp, Instagram, and Messenger to a multi-agent brain that qualifies, follows up, and closes 24/7.
+            Lead Claw is the next-generation AI-First Omnichannel CRM. Connect WhatsApp Business, Instagram DM, and Facebook Messenger to a multi-agent AI brain that qualifies leads, automates follow-ups, and books appointments 24/7. Never lose a lead again.
           </p>
 
           <div ref={ctaRef} className="hero-ctas">
