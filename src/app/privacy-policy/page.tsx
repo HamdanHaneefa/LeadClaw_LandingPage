@@ -162,7 +162,7 @@ export default function PrivacyPolicy() {
               <p>If you have questions about this Privacy Policy, please contact us:</p>
               <ul>
                 <li>Email: privacy@leadclaw.ai</li>
-                <li>Email: hello@leadclaw.ai</li>
+                <li>Email: leadclaw@elamai.in</li>
               </ul>
             </section>
           </div>

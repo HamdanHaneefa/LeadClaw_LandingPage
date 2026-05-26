@@ -82,6 +82,18 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        {/* Google Analytics */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-ENX73YFGMP"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-ENX73YFGMP');
+            `,
+          }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -131,7 +143,7 @@ export default function RootLayout({
               "description": "Lead Claw is an AI-powered omnichannel CRM that automates lead management across WhatsApp, Instagram, and Facebook.",
               "contactPoint": {
                 "@type": "ContactPoint",
-                "email": "hello@leadclaw.ai",
+                "email": "leadclaw@elamai.in",
                 "contactType": "Customer Service"
               },
               "sameAs": [

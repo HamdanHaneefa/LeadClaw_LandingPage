@@ -204,7 +204,7 @@ export default function TermsOfService() {
               <p>If you have questions about these Terms, please contact us:</p>
               <ul>
                 <li>Email: legal@leadclaw.ai</li>
-                <li>Email: hello@leadclaw.ai</li>
+                <li>Email: leadclaw@elamai.in</li>
               </ul>
             </section>
           </div>

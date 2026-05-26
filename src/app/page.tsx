@@ -82,8 +82,6 @@ export default function Home() {
 
             <div className="nav-links">
               <a href="#features">Features</a>
-              <a href="#agents">Agents</a>
-              <a href="#pricing">Pricing</a>
             </div>
 
             <button className="btn-primary nav-btn">
@@ -534,7 +532,6 @@ export default function Home() {
                 <div className="footer-links">
                     <h4>Platform</h4>
                     <a href="#features">Features</a>
-                    <a href="#agents">AI Agents</a>
                     <a href="#scale">Bulk Scale</a>
                 </div>
 
@@ -549,8 +546,8 @@ export default function Home() {
                 <div className="footer-contact glass">
                     <h4>Get in Touch</h4>
                     <p>Interested in a custom setup? Let's talk.</p>
-                    <a href="mailto:hello@leadclaw.ai" className="contact-link">hello@leadclaw.ai</a>
-                    <button className="btn-primary w-full" style={{ marginTop: '16px' }}>Book Demo</button>
+                    <a href="mailto:leadclaw@elamai.in" className="contact-link">leadclaw@elamai.in</a>
+                    <a href="mailto:leadclaw@elamai.in" className="btn-primary w-full" style={{ marginTop: '16px', textDecoration: 'none', display: 'inline-block', textAlign: 'center' }}>Book Demo</a>
                 </div>
             </div>
 
