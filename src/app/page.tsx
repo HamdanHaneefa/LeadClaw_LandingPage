@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { 
   Zap, 
@@ -29,6 +29,10 @@ export default function Home() {
   const ctaRef = useRef<HTMLDivElement>(null);
   const previewRef = useRef<HTMLDivElement>(null);
   const navRef = useRef<HTMLElement>(null);
+  const [showModal, setShowModal] = useState(false);
+  const [formData, setFormData] = useState({ name: '', email: '', phone: '', message: '' });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState('');
 
   useEffect(() => {
     const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
@@ -65,6 +69,45 @@ export default function Home() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus('');
+
+    try {
+      // Submit to Google Sheets via API
+      const response = await fetch('/api/submit-demo', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setSubmitStatus('success');
+        setFormData({ name: '', email: '', phone: '', message: '' });
+        setTimeout(() => {
+          setShowModal(false);
+          setSubmitStatus('');
+        }, 2000);
+      } else {
+        setSubmitStatus('error');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
   return (
     <main className="main-wrapper">
       <div className="glow-mesh" />
@@ -81,11 +124,10 @@ export default function Home() {
             </a>
 
             <div className="nav-links">
-              <a href="#features">Features</a>
             </div>
 
-            <button className="btn-primary nav-btn">
-              Launch App <ChevronRight size={14} />
+            <button onClick={() => setShowModal(true)} className="btn-primary nav-btn">
+              Book Demo <ChevronRight size={14} />
             </button>
           </div>
         </div>
@@ -547,7 +589,7 @@ export default function Home() {
                     <h4>Get in Touch</h4>
                     <p>Interested in a custom setup? Let's talk.</p>
                     <a href="mailto:leadclaw@elamai.in" className="contact-link">leadclaw@elamai.in</a>
-                    <a href="mailto:leadclaw@elamai.in" className="btn-primary w-full" style={{ marginTop: '16px', textDecoration: 'none', display: 'inline-block', textAlign: 'center' }}>Book Demo</a>
+                    <button onClick={() => setShowModal(true)} className="btn-primary w-full" style={{ marginTop: '16px' }}>Book Demo</button>
                 </div>
             </div>
 
@@ -559,6 +601,92 @@ export default function Home() {
             </div>
         </div>
       </footer>
+
+      {/* Book Demo Modal */}
+      {showModal && (
+        <div className="modal-overlay" onClick={() => setShowModal(false)}>
+          <div className="modal-content glass" onClick={(e) => e.stopPropagation()}>
+            <button className="modal-close" onClick={() => setShowModal(false)}>
+              <X size={24} />
+            </button>
+            <h2 className="modal-title">Book a Demo</h2>
+            <p className="modal-subtitle">Fill out the form below and we'll get back to you shortly.</p>
+            
+            <form onSubmit={handleSubmit} className="demo-form">
+              <div className="form-group">
+                <label htmlFor="name">Name *</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleInputChange}
+                  required
+                  placeholder="Your full name"
+                />
+              </div>
+              
+              <div className="form-group">
+                <label htmlFor="email">Email *</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  required
+                  placeholder="your@email.com"
+                />
+              </div>
+              
+              <div className="form-group">
+                <label htmlFor="phone">Phone *</label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleInputChange}
+                  required
+                  placeholder="+91 XXXXX XXXXX"
+                />
+              </div>
+              
+              <div className="form-group">
+                <label htmlFor="message">Message</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleInputChange}
+                  rows={4}
+                  placeholder="Tell us about your requirements..."
+                />
+              </div>
+              
+              {submitStatus === 'success' && (
+                <div className="form-status success">
+                  <CheckCircle2 size={18} /> Form submitted successfully!
+                </div>
+              )}
+              
+              {submitStatus === 'error' && (
+                <div className="form-status error">
+                  Something went wrong. Please try again.
+                </div>
+              )}
+              
+              <button 
+                type="submit" 
+                className="btn-primary w-full"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? 'Submitting...' : 'Submit Request'}
+              </button>
+            </form>
+          </div>
+        </div>
+      )}
     </main>
   );
 }
