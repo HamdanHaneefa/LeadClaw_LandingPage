@@ -150,10 +150,10 @@ export default function Home() {
           </p>
 
           <div ref={ctaRef} className="hero-ctas">
-            <button className="btn-primary">
+            <button onClick={() => setShowModal(true)} className="btn-primary" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
               Get Started for Free <ArrowRight size={18} />
             </button>
-            <button className="btn-secondary">
+            <button onClick={() => setShowModal(true)} className="btn-secondary">
               Book a Demo
             </button>
           </div>
